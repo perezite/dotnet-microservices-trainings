@@ -14,19 +14,19 @@ namespace PlatformService.Data
             _context = context;
         }
 
-        public void CreatePlatform(Platform plat)
+        public void CreatePlatform(Platform platform)
         {
-            if(plat == null)
+            if (platform == null)
             {
-                throw new ArgumentNullException(nameof(plat));
+                throw new ArgumentNullException(nameof(platform));
             }
 
-            _context.Platforms.Add(plat);
+            _context.Platforms.Add(platform);
         }
 
         public IEnumerable<Platform> GetAllPlatforms()
         {
-            return _context.Platforms.ToList();
+            return _context.Platforms;
         }
 
         public Platform GetPlatformById(int id)
@@ -36,7 +36,7 @@ namespace PlatformService.Data
 
         public bool SaveChanges()
         {
-            return (_context.SaveChanges() >= 0);
+            return _context.SaveChanges() >= 0;
         }
     }
 }
