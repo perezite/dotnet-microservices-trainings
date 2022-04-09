@@ -9,12 +9,12 @@ static async Task Call(string url, string apiName, HttpClient httpClient)
     try
     {
         var api1Response = await httpClient.GetAsync(url);
-        var message1 = await api1Response.Content.ReadAsStringAsync();
+        var message = await api1Response.Content.ReadAsStringAsync();
 
         var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
-        var forecast1 = JsonSerializer.Deserialize<List<WeatherForecast>>(message1, options);
+        var forecast = JsonSerializer.Deserialize<List<WeatherForecast>>(message, options);
 
-        Console.WriteLine($"[{apiName}] Environment: " + forecast1?[0].Summary);
+        Console.WriteLine($"[{apiName}] Environment: " + forecast?[0].Summary);
     }
     catch (HttpRequestException)
     {
