@@ -1,30 +1,41 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
+// var api2Response = await httpClient.GetAsync("http://localhost:5172/weatherforecast");
+
 using System.Text.Json;
+
+static async Task Call(string url, string apiName, HttpClient httpClient)
+{
+    try
+    {
+        var api1Response = await httpClient.GetAsync(url);
+        var message1 = await api1Response.Content.ReadAsStringAsync();
+
+        var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+        var forecast1 = JsonSerializer.Deserialize<List<WeatherForecast>>(message1, options);
+
+        Console.WriteLine($"[{apiName}] Environment: " + forecast1?[0].Summary);
+    }
+    catch (HttpRequestException)
+    {
+        Console.WriteLine($"[{apiName}] No Connection");
+    }
+    catch (TaskCanceledException)
+    {
+        Console.WriteLine($"[{apiName}] Timeout");
+    }
+}
 
 while (true)
 {
     Console.WriteLine("Update");
     Thread.Sleep(500);
-    using var httpClient = new HttpClient();
-    var api1Response = await httpClient.GetAsync("http://localhost:5090/weatherforecast");
-    var api2Response = await httpClient.GetAsync("http://localhost:5172/weatherforecast");
 
-    var message1 = await api1Response.Content.ReadAsStringAsync();
-    var message2 = await api2Response.Content.ReadAsStringAsync();
+    var httpClient = new HttpClient();
+    httpClient.Timeout = TimeSpan.FromSeconds(1);
 
-    var options = new JsonSerializerOptions
-    {
-        PropertyNameCaseInsensitive = true
-    };
-    var forecast1 = JsonSerializer.Deserialize<List<WeatherForecast>>(message1, options);
-    var forecast2 = JsonSerializer.Deserialize<List<WeatherForecast>>(message2, options);
-
-    Console.WriteLine("Environment: " + forecast1?[0].Summary);
-    Console.WriteLine("Environment: " + forecast2?[0].Summary);
+    await Call("http://localhost:5090/weatherforecast", "Web Api 1", httpClient);
+    await Call("http://localhost:5172/weatherforecast", "Web Api 2", httpClient);
 }
 
-internal record WeatherForecast(DateTime Date, int TemperatureC, string? Summary)
-{
-    public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
-}
+internal record WeatherForecast(string? Summary);
