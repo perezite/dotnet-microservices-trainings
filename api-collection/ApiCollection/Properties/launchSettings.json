@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "ApiCollection": {
+      "commandName": "Project",
+      "remoteDebugEnabled": false
+    }
+  }
+}
