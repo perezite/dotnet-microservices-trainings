@@ -1,4 +1,4 @@
-﻿{
+{
   "$schema": "https://json.schemastore.org/launchsettings.json",
   "iisSettings": {
     "windowsAuthentication": false,
@@ -9,23 +9,25 @@
     }
   },
   "profiles": {
-    "WebApi2": {
+    "Development": {
       "commandName": "Project",
-      "dotnetRunMessages": true,
       "launchBrowser": true,
       "launchUrl": "swagger",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
       "applicationUrl": "http://localhost:5172",
-      "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
-      }
+      "dotnetRunMessages": true
     },
-    "IIS Express": {
-      "commandName": "IISExpress",
+    "Local": {
+      "commandName": "Project",
       "launchBrowser": true,
       "launchUrl": "swagger",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
-      }
+        "ASPNETCORE_ENVIRONMENT": "Local"
+      },
+      "applicationUrl": "http://localhost:5172",
+      "dotnetRunMessages": true
     }
   }
 }

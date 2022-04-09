@@ -1,6 +1,8 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
-while(true)
+using System.Text.Json;
+
+while (true)
 {
     Console.WriteLine("Update");
     Thread.Sleep(500);
@@ -11,7 +13,18 @@ while(true)
     var message1 = await api1Response.Content.ReadAsStringAsync();
     var message2 = await api2Response.Content.ReadAsStringAsync();
 
-    Console.WriteLine(message1.Substring(0, 100) + "...");
-    Console.WriteLine(message1.Substring(0, 200) + "...");
+    var options = new JsonSerializerOptions
+    {
+        PropertyNameCaseInsensitive = true
+    };
+    var forecast1 = JsonSerializer.Deserialize<List<WeatherForecast>>(message1, options);
+    var forecast2 = JsonSerializer.Deserialize<List<WeatherForecast>>(message2, options);
 
+    Console.WriteLine("Environment: " + forecast1?[0].Summary);
+    Console.WriteLine("Environment: " + forecast2?[0].Summary);
+}
+
+internal record WeatherForecast(DateTime Date, int TemperatureC, string? Summary)
+{
+    public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
 }

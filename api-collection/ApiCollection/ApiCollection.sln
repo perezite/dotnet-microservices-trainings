@@ -13,7 +13,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WebApi2", "WebApi2", "{8E60
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApi2", "..\Apis\WebApi2\WebApi2\WebApi2.csproj", "{DC205E18-4E92-4226-8079-E37B4D48B963}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TEst", "TEst", "{2D64023B-25DB-4A01-B6CF-274513C92302}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{2D64023B-25DB-4A01-B6CF-274513C92302}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

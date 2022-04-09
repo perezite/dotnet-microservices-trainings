@@ -6,9 +6,10 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
+var config = app.Services.GetService<IConfiguration>();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
+if (app.Environment.IsDevelopment() || app.Environment.IsEnvironment("Local"))
 {
     app.UseSwagger();
     app.UseSwaggerUI();
@@ -26,7 +27,7 @@ app.MapGet("/weatherforecast", () =>
        (
            DateTime.Now.AddDays(index),
            Random.Shared.Next(-20, 55),
-           summaries[Random.Shared.Next(summaries.Length)]
+           config?["Value"]
        ))
         .ToArray();
     return forecast;
