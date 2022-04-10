@@ -1,3 +1,5 @@
+using Library;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -27,9 +29,9 @@ app.MapGet("/weatherforecast", () =>
        (
            DateTime.Now.AddDays(index),
            Random.Shared.Next(-20, 55),
-           config?["Value"]
-       ))
-        .ToArray();
+           $"{Naming.Name} {config?["Value"]}"
+       )
+    ).ToArray();
     return forecast;
 })
 .WithName("GetWeatherForecast");
