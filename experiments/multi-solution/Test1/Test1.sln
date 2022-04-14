@@ -1,0 +1,42 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30114.105
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "project1", "project1", "{460D36CF-6A2A-4881-8E30-F30843744B76}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "subfolder", "subfolder", "{72BC9E9A-FB75-4249-86CA-F6A08BCFAA2C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "myapp", "project1\subfolder\myapp\myapp.csproj", "{A2EA1AB6-A3A5-4B25-B798-8D9D5F1E9DAF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "project2", "project2", "{9129B99B-3495-4D96-B084-369ABD8E5250}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "subflder", "subflder", "{708C0629-F84C-4811-8731-1F73E8F543B5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "myapp", "project2\subflder\myapp\myapp.csproj", "{F2454427-32B9-4C5D-9C2A-A99056BF2621}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A2EA1AB6-A3A5-4B25-B798-8D9D5F1E9DAF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2EA1AB6-A3A5-4B25-B798-8D9D5F1E9DAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2EA1AB6-A3A5-4B25-B798-8D9D5F1E9DAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2EA1AB6-A3A5-4B25-B798-8D9D5F1E9DAF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F2454427-32B9-4C5D-9C2A-A99056BF2621}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F2454427-32B9-4C5D-9C2A-A99056BF2621}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F2454427-32B9-4C5D-9C2A-A99056BF2621}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F2454427-32B9-4C5D-9C2A-A99056BF2621}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{72BC9E9A-FB75-4249-86CA-F6A08BCFAA2C} = {460D36CF-6A2A-4881-8E30-F30843744B76}
+		{A2EA1AB6-A3A5-4B25-B798-8D9D5F1E9DAF} = {72BC9E9A-FB75-4249-86CA-F6A08BCFAA2C}
+		{708C0629-F84C-4811-8731-1F73E8F543B5} = {9129B99B-3495-4D96-B084-369ABD8E5250}
+		{F2454427-32B9-4C5D-9C2A-A99056BF2621} = {708C0629-F84C-4811-8731-1F73E8F543B5}
+	EndGlobalSection
+EndGlobal
