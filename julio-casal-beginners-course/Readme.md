@@ -1,6 +1,6 @@
 # Video
 https://www.youtube.com/watch?v=ByYyk8eMG6c&t=19372s&ab_channel=JulioCasal
-Current position: 3:55:20
+Current position: 4:35:27
 
 # Commands
 Build Project: Ctrl + Shift + B
