@@ -33,5 +33,32 @@ namespace Play.Inventory.Service.Controllers
 
             return Ok(items);
         }
+
+        [HttpPost]
+        public async Task<ActionResult> PostAsync(GrantItemsDto grantItemsDto)
+        {
+            var inventoryItem = await itemsRepository.GetAsync(item =>
+                item.UserId == grantItemsDto.UserId && item.CatalogItemId == grantItemsDto.CatalogItemId);
+
+            if (inventoryItem == null)
+            {
+                inventoryItem = new InventoryItem
+                {
+                    CatalogItemId = grantItemsDto.CatalogItemId,
+                    UserId = grantItemsDto.UserId,
+                    Quantity = grantItemsDto.Quantity,
+                    AcquiredDate = DateTimeOffset.UtcNow
+                };
+
+                await itemsRepository.CreateAsync(inventoryItem);
+            }
+            else
+            {
+                inventoryItem.Quantity += grantItemsDto.Quantity;
+                await itemsRepository.UpdateAsync(inventoryItem);
+            }
+
+            return Ok();
+        }
     }
 }
