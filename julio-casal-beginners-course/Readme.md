@@ -1,7 +1,6 @@
 # Video
 https://www.youtube.com/watch?v=ByYyk8eMG6c&t=19372s&ab_channel=JulioCasal
-Current position: 4:35:27
-
+Current position: 5:21:45
 # Commands
 Build Project: Ctrl + Shift + B
 dotnet nuget add source C:\Data\Arbeit\Development\dotnet-microservices-trainings\julio-casal-beginners-course\packages -n PlayEconomy
