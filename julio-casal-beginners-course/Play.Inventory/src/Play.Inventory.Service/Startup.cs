@@ -43,6 +43,8 @@ namespace Play.Inventory.Service
             });
 
             services.AddSingleton<CatalogItemCreatedConsumer>();
+            services.AddSingleton<CatalogItemDeletedConsumer>();
+            services.AddSingleton<CatalogItemUpdatedConsumer>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
